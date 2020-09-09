@@ -1,4 +1,4 @@
-# Clone the 2 files
-# Placethe 2 files in the same directory
+# Clone the 3 files
+# Place the 3 files in the same directory
 # Run getUserScore.py in IDLE
-# fix the error.
+# Fix the error.
