@@ -1,0 +1,20 @@
+Exercise	2:	Getting	the	User’s	Score Here	we’ll	define	our	first	function.	Let’s	call	it	getUserPoint().	This function	accepts	one	parameter,	userName.	It	then	opens	the	file ‘userScores.txt’	in	‘r’	mode.
+	
+userScores.txt	looks	something	like	this: Ann,	100 Benny,	102 Carol,	214
+Darren,	129
+	
+Each	line	records	the	information	of	one	user.	The	first	value	is	the	user’s username	and	the	second	is	the	user’s	score.
+	
+Next,	the	function	reads	the	file	line	by	line	using	a	for	loop.	Each	line	is then	split	using	the	split()	function	(refer	to	Appendix	A	for	an example	on	using	the	split()	function).
+	
+Let’s	store	the	results	of	the	split()	function	in	the	list	content.
+	
+Next,	the	function	checks	if	any	of	the	lines	has	the	same	username	as the	value	that	is	passed	in	as	the	parameter.	If	there	is,	the	function closes	the	file	and	returns	the	score	beside	that	username.	If	there	isn’t, the	function	closes	the	file	and	returns	the	string	‘-1’.
+	
+Clear	so	far?	Try	coding	the	function.
+	
+Done?
+	
+Now	we	need	to	make	some	modifications	to	our	code.	When	opening our	file	previously,	we	used	the	‘r’	mode.	This	helps	to	prevent	any accidental	changes	to	the	file.	However,	when	opening	a	file	in	‘r’	mode, an	IOError	occurs	if	the	file	does	not	already	exist.	Hence	when	we	run the	program	for	the	first	time,	we’ll	end	up	with	an	error	since	the	file userScores.txt	does	not	exist	previously.	To	prevent	this	error,	we can	do	either	of	the	following: Instead	of	opening	the	file	in	‘r’	mode,	we	can	open	it	in	‘w’	mode.	When opening	in	‘w’	mode,	a	new	file	will	be	created	if	the	file	does	not	exist previously.	The	risk	with	this	method	is	we	may	accidentally	write	to	the file,	which	results	in	all	previous	content	being	erased.	However,	since our	program	is	a	small	program,	we	can	check	through	our	code	carefully to	prevent	any	accidental	writing.
+	
+The	second	method	is	to	use	a	try,	except	statement	to	handle	the IOError.	To	do	that,	we	need	to	put	all	our	previous	codes	in	the	try block,	then	use	except	IOError:	to	handle	the	‘File	not	found’	error. In	the	except	block,	we’ll	inform	users	that	the	file	is	not	found	and	then proceed	to	create	the	file.	We’ll	use	the	open()	function	with	‘w’	mode	to create	it.	The	difference	here	is	we	use	the	‘w’	mode	only	when	the	file	is not	found.	Since	the	file	does	not	exist	initially,	there	is	no	risk	of	erasing any	previous	content.	After	creating	the	file,	close	the	file	and	return	the string	“-1”.
